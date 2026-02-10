@@ -8,10 +8,10 @@ const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const userId = params.id;
+    const { id: userId } = await params;
 
     // Get auth user first
     const { data: authUser, error: authError } = await supabaseAdmin.auth.admin.getUserById(userId);
