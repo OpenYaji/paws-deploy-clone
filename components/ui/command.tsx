@@ -23,7 +23,7 @@ function Command({
       className={cn(
         'bg-popover text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md',
         className,
-      )}
+      )} 
       {...props}
     />
   )
@@ -34,13 +34,12 @@ function CommandDialog({
   description = 'Search for a command to run...',
   children,
   className,
-  showCloseButton = true,
   ...props
 }: React.ComponentProps<typeof Dialog> & {
   title?: string
   description?: string
   className?: string
-  showCloseButton?: boolean
+
 }) {
   return (
     <Dialog {...props}>
